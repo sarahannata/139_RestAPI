@@ -66,6 +66,15 @@ fun HomeScreen(
                 scrollBehavior = scrollBehavior
             )
         },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = navigateToItemEntry,
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.padding(18.dp)
+            ) {
+                Icon(imageVector = Icons.Default.Add, contentDescription = "Add Kontak")
+            }
+        },
     ) { innerPadding ->
         HomeStatus(
             kontakUIState = viewModel.kontakUIState,
