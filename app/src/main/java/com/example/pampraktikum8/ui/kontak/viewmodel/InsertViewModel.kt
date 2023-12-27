@@ -16,6 +16,16 @@ class InsertViewModel(private val kontakRepository: KontakRepository) : ViewMode
     fun updateInsertKontakState(insertUiEvent: InsertUiEvent) {
         insertKontakState = InsertUiState(insertUiEvent = insertUiEvent)
     }
+
+    suspend fun insertKontak() {
+        viewModelScope.launch {
+            try {
+                kontakRepository.insertKontak(insertKontakState.insertUiEvent.toKontak())
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
+        }
+    }
 }
 
 
