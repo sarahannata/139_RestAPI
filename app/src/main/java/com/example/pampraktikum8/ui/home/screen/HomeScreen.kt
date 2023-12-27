@@ -14,17 +14,23 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -33,9 +39,16 @@ import com.example.pampraktikum8.R
 import com.example.pampraktikum8.model.Kontak
 import com.example.pampraktikum8.navigation.DestinasiNavigasi
 import com.example.pampraktikum8.ui.PenyediaViewModel
+import com.example.pampraktikum8.ui.TopAppBarKontak
 import com.example.pampraktikum8.ui.home.viewmodel.HomeViewModel
 import com.example.pampraktikum8.ui.home.viewmodel.KontakUIState
 
+object DestinasiHome : DestinasiNavigasi {
+    override val route = "home"
+    override val titleRes = "Kontak"
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     navigateToItemEntry: () -> Unit,
@@ -43,6 +56,8 @@ fun HomeScreen(
     onDetailClick: (Int) -> Unit = {},
     viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+
 }
 @Composable
 fun HomeStatus(
@@ -109,7 +124,7 @@ fun KontakLayout(
         items(kontak) { kontak ->
             KontakCard(kontak = kontak, modifier = Modifier
                 .fillMaxWidth()
-                .clickable { onDeleteClick(kontak)},
+                .clickable { onDeleteClick(kontak) },
                 onDeleteClick = {
                     onDeleteClick(kontak)
                 })
