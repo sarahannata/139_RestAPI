@@ -28,10 +28,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pampraktikum8.R
 import com.example.pampraktikum8.model.Kontak
+import com.example.pampraktikum8.navigation.DestinasiNavigasi
+import com.example.pampraktikum8.ui.PenyediaViewModel
+import com.example.pampraktikum8.ui.home.viewmodel.HomeViewModel
 import com.example.pampraktikum8.ui.home.viewmodel.KontakUIState
 
+@Composable
+fun HomeScreen(
+
+) {
+}
 @Composable
 fun HomeStatus(
     kontakUIState: KontakUIState,
