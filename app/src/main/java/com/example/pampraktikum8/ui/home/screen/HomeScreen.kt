@@ -38,7 +38,10 @@ import com.example.pampraktikum8.ui.home.viewmodel.KontakUIState
 
 @Composable
 fun HomeScreen(
-
+    navigateToItemEntry: () -> Unit,
+    modifier: Modifier = Modifier,
+    onDetailClick: (Int) -> Unit = {},
+    viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
 }
 @Composable
