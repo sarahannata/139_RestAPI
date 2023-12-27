@@ -14,6 +14,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.pampraktikum8.ui.kontak.viewmodel.InsertUiEvent
+import com.example.pampraktikum8.ui.kontak.viewmodel.InsertUiState
+
+@Composable
+fun EntryKontakBody(
+    insertUiState: InsertUiState,
+    onSiswaValueChange: (InsertUiEvent) -> Unit,
+    onSaveClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
