@@ -19,6 +19,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -79,7 +80,7 @@ fun KontakLayout(kontak: List<Kontak>, modifier: Modifier = Modifier){
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ){
         items(kontak) { kontak ->
-            Kontakcard(kontak = kontak, modifier = Modifier
+            KontakCard(kontak = kontak, modifier = Modifier
                 .fillMaxWidth()
                 .clickable { })
         }
@@ -87,7 +88,7 @@ fun KontakLayout(kontak: List<Kontak>, modifier: Modifier = Modifier){
 }
 
 @Composable
-fun Kontakcard(
+fun KontakCard(
     kontak: Kontak,
     onDeleteClick: (Kontak) -> Unit = {},
     modifier: Modifier = Modifier
@@ -103,16 +104,19 @@ fun Kontakcard(
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     text = kontak.nama,
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
-                Icon(
-                    imageVector = Icons.Default.Phone,
-                    contentDescription = null,
-                )
+                IconButton(onClick = { onDeleteClick(kontak)}) {
+                    Icon(
+                        imageVector = Icons.Default.Phone,
+                        contentDescription = null,
+                    )
+                }
                 Text(
                     text = kontak.telpon,
                     style = MaterialTheme.typography.titleMedium
